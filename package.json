@@ -1,0 +1,15 @@
+{
+  "name": "vuePress-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/shinichi-github-xh/vuePress-demo.git",
+  "author": "shinichi <8150114+yoke_811@user.noreply.gitee.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.9.7"
+  }, 
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}
