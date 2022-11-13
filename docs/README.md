@@ -4,7 +4,7 @@ heroImage: /avatar.png
 heroText: 欢迎来到小辉的博客网站
 tagline: vuepress初体验
 actionText: 进入主页 →
-actionLink: /test/
+actionLink: /vue/
 features:
 - title: 简洁至上
   details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。

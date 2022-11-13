@@ -1,10 +1,9 @@
-# 🔆GitHub
-
-#### 什么是GitHub?
+# GitHub
+## 什么是GitHub?
 
 ​	github是一个分布式的版本控制系统。其主要作用就是通过跟踪管理文件修改的版本，帮助我们能够相对准确的追溯我们想要找到的的版本文件。
 
-#### 文件的存放区域：
+## 文件的存放区域：
 
 - **工作区：**也就是本地操作的文件目录。
 
@@ -15,9 +14,8 @@
 
 - **远程仓库：**一般为自己创建的github仓库，可以被多个客户端进行连接。
 
-#### 文件的提交过程：
-
-![git文件流向图](VuePress.assets/image-20221110113125917.png)
+### 文件的提交过程：
+![Image from alias](../.vuepress/public/utilsImgs/gitImgs/gitArea.png)
 
 ​	第一步：对文件进行修改。	
 
@@ -27,9 +25,9 @@
 
 ​	第四步：通过`git push`将`分支`的代码上传到`远程仓库`上。
 
-### 本地操作
+## 本地操作
 
-#### 查看文件：
+### 查看文件：
 
 ​	查看当前文件状态：
 
@@ -43,7 +41,7 @@ $ git status
 $ git diff HEAD -- file.txt
 ```
 
-#### 将文件添加到暂存区(.gitinore目录)：
+### 将文件添加到暂存区(.gitinore目录)：
 
 ​	添加到state:
 
@@ -57,7 +55,7 @@ $ git add .
 $ git commit -m "对操作的描述"
 ```
 
-#### 撤销对文件修改：
+### 撤销对文件修改：
 
 ​	将文件在工作区的修改全部撤销：
 
@@ -90,7 +88,7 @@ $ git reset --hard HEAD^回退版本id
 >
 >4、`git reset`命令既可以回退版本，也可以将`暂存区`的修改回退到`工作区`，当使用`HEAD`时表示最新版本。
 
-#### 删除文件：
+### 删除文件：
 
 ​	从版本库中删除该文件：
 
@@ -108,9 +106,9 @@ $ git commit - m "对这个操作的描述"
 >
 > **⚠️注意：**从来没有被添加到版本库就被删除的文件，是无法恢复的！
 
-### 远程仓库操作
+## 远程仓库操作
 
-#### 关联远程仓库：
+### 关联远程仓库：
 
 ​	关联远程仓库：
 
@@ -126,7 +124,7 @@ $ git remote add origin git@github.com:shinichi-github-xh/vuePress-demo.git
 >
 > 3、`https`协议速度慢，每次推送还需要输入口令。`ssh`协议速度最快，但某些开放`https`端口的公司内部就无法使用`ssh`协议而只能使用`https`
 
-#### 向远程仓库推送内容：
+### 向远程仓库推送内容：
 
 ​	首次将分支内容推送到远程仓库：
 
@@ -142,7 +140,7 @@ $ git push -u origin master
 >
 > 3、执行后该分支会被推送到远程仓库，并且将远程仓库和本地的分支进行关联，后续对该分支的推送或拉取就可以简化命令。如推送指令改成：`git push origin master`
 
-#### 查看远程仓库信息：
+### 查看远程仓库信息：
 
 ​	查看远程仓库：
 
@@ -150,7 +148,7 @@ $ git push -u origin master
 $ git remote -v
 ```
 
-#### 解除远程仓库关联：
+### 解除远程仓库关联：
 
 ​	根据仓库名称删除：
 
@@ -162,7 +160,7 @@ $ git remote rm origin
 
 > 此处的“删除”其实是解除了本地和远程的绑定关系，并不是物理上删除了远程库。远程库本身并没有任何改动。要真正删除远程库，需要登录到GitHub，在后台页面找到删除按钮再删除。
 
-#### 克隆仓库：
+### 克隆仓库：
 
 > 以上操作都是在先有本地仓库后创建远程仓库的情况下，下面将从先有远程仓库后有本地仓库的情况进行操作。
 
@@ -172,13 +170,13 @@ $ git remote rm origin
 $ git clone git@github.com:shinichi-github-xh/vuePress-demo.git
 ```
 
-### 分支管理
+## 分支管理
 
-#### 什么是分支：
+### 什么是分支：
 
 ​	分支就是一条Git通过提交节点组成的时间线，每提交一次文件就会产生一个新的分支节点。
 
-#### 主分支和次分支：
+### 主分支和次分支：
 
 ​	对每次提交的节点，Git会将它们串成一条时间线，这条时间线就是分支。默认分支为`master`分支，也就是说，如果你不进行更改的话，`master`分支会作为`当前分支`来使用。
 
@@ -186,17 +184,17 @@ $ git clone git@github.com:shinichi-github-xh/vuePress-demo.git
 
 ​	为了提高开发效率和安全性，Git官方鼓励我们大量使用分支功能。
 
-![image-20221111110136129](VuePress.assets/image-20221111110136129.png)
+![分支](../.vuepress/public/utilsImgs/gitImgs/branch.png)
 
 ​	当创建新分支时，Git会创建一个新的指针指向与`master`分支指向相同的节点，并且随后对文件的操作都将在新分支上进行，不会对`master`分支产生作用。
 
-![新分支与主分支](VuePress.assets/image-20221111110034638.png)
+![新分支与主分支](../.vuepress/public/utilsImgs/gitImgs/newBranch.png)
 
 ​	当新分支的功能开发完毕后，可以选择与主分支进行合并，更新仓库的文件版本，如图所示，合并完成后，`master`分支就是最终版本了。
 
-![分支合并](VuePress.assets/image-20221111110006089.png)
+![分支合并](../.vuepress/public/utilsImgs/gitImgs/mergeBranch.png)
 
-#### 创建分支：
+### 创建分支：
 
 ​    创建分支指令：
 
@@ -204,7 +202,7 @@ $ git clone git@github.com:shinichi-github-xh/vuePress-demo.git
 $ git branch <branchName>
 ```
 
-#### 查看分支：
+### 查看分支：
 
 ​	查看分支信息指令：
 
@@ -212,7 +210,7 @@ $ git branch <branchName>
 $ git branch
 ```
 
-#### 切换分支：
+### 切换分支：
 
 ​	将已有的分支切换为`当前分支`指令：
 
@@ -234,7 +232,7 @@ $ git checkout -b <branchName>
 $ git switch -c <branchName>
 ```
 
-#### 合并分支：
+### 合并分支：
 
 ​	将`某分支`合并到`当前分支`指令：
 
@@ -242,7 +240,7 @@ $ git switch -c <branchName>
 $ git merge <branchName>
 ```
 
-#### 删除分支：
+### 删除分支：
 
 ​	删除分支指令：
 
