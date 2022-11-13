@@ -1,3 +1,6 @@
+// 导入日期格式化库：moment
+// 
+
 module.exports = {
   // 增强SEO的描述
   title: "小辉的博客",
@@ -20,6 +23,7 @@ module.exports = {
   },
   // 默认主题的配置
   themeConfig: {
+    lastUpdated: "更新时间：", //git提交的最后时间
     logo: "/avatar.png", //左上角logo
     displayAllHeaders: true, // 显示所有页面的标题链接
     // 导航栏配置
@@ -59,7 +63,7 @@ module.exports = {
       },
     ],
     // 侧边栏配置
-    sidebar: "auto",
+    sidebar: "auto", //根据内容自动展示
     // sidebar: {
     //   "/vue/": [
     //     "",
